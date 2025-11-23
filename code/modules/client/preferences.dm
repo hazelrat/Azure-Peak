@@ -2043,15 +2043,21 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='yellow'><b>[loadout3.name]</b></font>")
 							if(loadout3.desc)
 								to_chat(user, "[loadout3.desc]")
+
 				if("loadout1hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item One Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_1_hex = colorlist[choice]
-						if (loadout)
-							to_chat(user, "The colour for your [loadout::name] has been set to <b>[choice]</b>.")
+					var/choice
+					if(tgalert(user, "Choose a color by name or via a color wheel?", "", "Color Name", "Color Wheel") == "Color Name")
+						choice = input(user, "Choose a color.", "Loadout Item One Colour") as null|anything in colorlist
+					else
+						choice = sanitize_hexcolor(color_pick_sanitized(usr, "Choose a color.", "Loadout Item One Colour"))
+					if(choice)
+						loadout_1_hex = choice
+						if(loadout)
+							to_chat(user, "The colour for your [loadout::name] has been set to <font color=#[choice]<b>[choice]</b></font>.")
 					else
 						loadout_1_hex = null
 						to_chat(user, "The colour for your <b>first</b> loadout item has been cleared.")
+
 				if("loadout2hex")
 					var/choice = input(user, "Choose a color.", "Loadout Item Two Colour") as null|anything in colorlist
 					if (choice && colorlist[choice])
@@ -2061,6 +2067,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					else
 						loadout_2_hex = null
 						to_chat(user, "The colour for your <b>second</b> loadout item has been cleared.")
+
 				if("loadout3hex")
 					var/choice = input(user, "Choose a color.", "Loadout Item Three Colour") as null|anything in colorlist
 					if (choice && colorlist[choice])
@@ -2070,6 +2077,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					else
 						loadout_3_hex = null
 						to_chat(user, "The colour for your <b>third</b> loadout item has been cleared.")
+
 				if("species")
 					var/list/species = list()
 					for(var/A in GLOB.roundstart_races)
