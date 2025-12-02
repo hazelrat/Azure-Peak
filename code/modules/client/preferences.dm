@@ -160,7 +160,11 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/domhand = 2
 	var/nickname = "Please Change Me"
 	var/highlight_color = "#FF0000"
+	/// First flaw - you need to select something on this, or else expend triumphs.
 	var/datum/charflaw/charflaw
+	/// Second flaw - totally optional, take only if you want some extra challenge!
+	/// Otherwise, defaults to a zero-cost non-flaw.
+	var/datum/charflaw/charflawtwo = /datum/charflaw/eznoflaw
 
 	var/static/default_cmusic_type = /datum/combat_music/default
 	var/datum/combat_music/combat_music
@@ -461,6 +465,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			else
 				virtuetwo = GLOB.virtues[/datum/virtue/none]
 			dat += "<b>Vice:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
+			dat += "<b>Optional Vice:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflawtwo]</a><BR>"
 			var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
 			dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
 			dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
@@ -975,6 +980,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 						name += charflaw.name
 					else
 						name += charflaw.name
+				if(charflawtwo.type in job.vice_restrictions)
+					if(name)
+						name += ", "
+						name += charflawtwo.name
+					else
+						name += charflawtwo.name
 				if(!isnull(name))
 					HTML += "<font color='#a561a5'>[used_name] (Disallowed by Virtues / Vice: [name])</font></td> <td> </td></tr>"
 			if(length(job.virtue_restrictions))
@@ -993,6 +1004,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			if(length(job.vice_restrictions))
 				if(charflaw.type in job.vice_restrictions)
 					HTML += "<font color='#a56161'>[used_name] (Disallowed by Vice: [charflaw.name])</font></td> <td> </td></tr>"
+					continue
+				if(charflawtwo.type in job.vice_restrictions)
+					HTML += "<font color='#a56161'>[used_name] (Disallowed by Vice: [charflawtwo.name])</font></td> <td> </td></tr>"
 					continue
 			var/job_unavailable = JOB_AVAILABLE
 			if(isnewplayer(parent?.mob))
@@ -2229,6 +2243,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 				if("charflaw")
 					var/list/coom = GLOB.character_flaws.Copy()
+					coom += list("No Flaw (-3 TRIUMPHS)" = /datum/charflaw/noflaw)
 					var/result = tgui_input_list(user, "What burden will you bear?", "FLAWS",coom)
 					if(result)
 						result = coom[result]
@@ -2236,6 +2251,18 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						charflaw = C
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
+
+				if("charflawtwo")
+					var/list/coom = GLOB.character_flaws.Copy()
+					coom += list("No Flaw (FREE)" = /datum/charflaw/eznoflaw)
+					var/result = tgui_input_list(user, "What burden will you bear? Note that this field is optional! It costs \
+					no triumphs to be without a second vice!", "FLAWS",coom)
+					if(result)
+						result = coom[result]
+						var/datum/charflaw/C = new result()
+						charflawtwo = C
+						if(charflawtwo.desc)
+							to_chat(user, "<span class='info'>[charflawtwo.desc]</span>")
 
 				if("race_bonus_select")
 					if(length(pref_species.custom_selection))
@@ -2292,15 +2319,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						skin_tone = listy[new_s_tone]
 						features["mcolor"] = sanitize_hexcolor(skin_tone)
 						try_update_mutant_colors()
-
-				if("charflaw")
-					var/selectedflaw
-					selectedflaw = tgui_input_list(user, "Choose your character's flaw:", "FLAWS", GLOB.character_flaws)
-					if(selectedflaw)
-						charflaw = GLOB.character_flaws[selectedflaw]
-						charflaw = new charflaw()
-						if(charflaw.desc)
-							to_chat(user, span_info("[charflaw.desc]"))
 
 				if("char_accent")
 					var/selectedaccent = tgui_input_list(user, "Choose your character's accent:", "Character Preference", GLOB.character_accents)
@@ -2768,6 +2786,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.jumpsuit_style = jumpsuit_style
 
 	if(charflaw)
+		character.charflaw = new charflaw.type()
+		character.charflaw.on_mob_creation(character)
+
+	if(charflawtwo)
 		character.charflaw = new charflaw.type()
 		character.charflaw.on_mob_creation(character)
 

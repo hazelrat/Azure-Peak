@@ -1,4 +1,6 @@
-
+/// NOTE, IMPORTANT: This list does not contain either the triumph or non-triumph varieties of the noflaw vice!
+/// These are appended in preferences.dm to enable using this list both for the primary and optional vice fields.
+/// If they stop appearing for whatever reason, it's probably messy logic somewhere in there.
 GLOBAL_LIST_INIT(character_flaws, list(
 	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
 	"Devout Follower"=/datum/charflaw/addiction/godfearing,
@@ -26,7 +28,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Hunted"=/datum/charflaw/hunted,
 	/datum/charflaw/mind_broken::name = /datum/charflaw/mind_broken,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
-	"No Flaw (-3 TRIUMPHS)"=/datum/charflaw/noflaw,
 	"Leper (+1 TRIUMPHS)"=/datum/charflaw/leprosy,
 	))
 
