@@ -138,10 +138,6 @@
 
 	mob.atkswinging = "right"
 	if(mob.oactive)
-		var/cooldown = (mob.active_hand_index == 2) ? mob.next_lmove : mob.next_rmove
-		if(cooldown > world.time)
-			charge_was_blocked_by_cooldown = TRUE
-			return
 		mob.used_intent = mob.o_intent
 		if(mob.used_intent.get_chargetime() && !object.blockscharging && !mob.in_throw_mode)
 			mob.face_atom(object, location, control, params)
@@ -152,10 +148,6 @@
 		mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
 
 /client/proc/handle_middle_click(atom/object, params, list/modifiers)
-	if(mob.next_move > world.time)
-		charge_was_blocked_by_cooldown = TRUE
-		return
-
 	mob.atkswinging = "middle"
 	if(mob.mmb_intent)
 		mob.used_intent = mob.mmb_intent
@@ -176,11 +168,6 @@
 	if(!modifiers["shift"] || mob.BehindAtom(object, mob.dir))
 		mob.face_atom(object, location, control, params)
 	if(modifiers["right"])
-		return
-
-	var/cooldown = (mob.active_hand_index == 1) ? mob.next_lmove : mob.next_rmove
-	if(cooldown > world.time)
-		charge_was_blocked_by_cooldown = TRUE
 		return
 
 	mob.atkswinging = "left"
@@ -269,8 +256,6 @@
 		L.used_intent.on_charge_start()
 		L.update_charging_movespeed(L.used_intent)
 		progress = 0
-		charge_start_time = world.time
-		charge_start_timeofday = world.timeofday
 		sections = null //commented //From what I can tell, this used to be for the mouse icon changing per % of the cast.
 		goal = L.used_intent.get_chargetime() //How much charge to get in order to cast
 		part = 1
