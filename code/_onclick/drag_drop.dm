@@ -76,7 +76,6 @@
 	blockscharging = TRUE
 
 /client/MouseDown(object, location, control, params)
-	charge_was_blocked_by_cooldown = FALSE
 	var/list/modifiers = params2list(params)
 
 	if(mob.incapacitated())
