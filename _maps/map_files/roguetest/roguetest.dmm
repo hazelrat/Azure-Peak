@@ -276,10 +276,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors)
-"lE" = (
-/obj/item/quiver/sling/steel,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors)
 "lN" = (
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors)
@@ -599,6 +595,9 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/sling,
 /obj/item/quiver/bolts,
 /obj/item/quiver/bolts,
+/obj/item/gun/ballistic/revolver/grenadelauncher/sling/great,
+/obj/item/quiver/sling/iron,
+/obj/item/quiver/sling/iron,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors)
 "ud" = (
@@ -1065,10 +1064,6 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog/north)
-"KL" = (
-/obj/item/gun/ballistic/revolver/grenadelauncher/sling/great,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors)
 "Ln" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog/north)
@@ -2980,7 +2975,7 @@ xy
 xy
 CZ
 yK
-KL
+yK
 rT
 vq
 rT
@@ -3084,7 +3079,7 @@ mL
 Ns
 xy
 yK
-lE
+yK
 yK
 yK
 ud
