@@ -1,4 +1,37 @@
-//intents
+/obj/item/gun/ballistic/revolver/grenadelauncher/sling
+	name = "sling"
+	desc = "Twisted fibers manifest into a strung pouch capable of hurling stones afar."
+	icon = 'icons/roguetown/weapons/misc32.dmi'
+	icon_state = "sling"
+	item_state = "sling"
+	experimental_onhip = TRUE
+	experimental_onback = TRUE
+	possible_item_intents = list(
+		/datum/intent/swing/sling,
+		/datum/intent/arc/sling,
+		INTENT_GENERIC,
+		)
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/sling
+	fire_sound = 'sound/combat/Ranged/sling-shot-01.ogg'
+	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BELT
+	w_class = WEIGHT_CLASS_SMALL
+	randomspread = 0
+	spread = 0
+	can_parry = TRUE
+	force = 10 //i guess if someone wanted to wrap this around their hand and punch they could?
+	verbage = "load"
+	cartridge_wording = "stone"
+	load_sound = 'sound/foley/slingload.ogg'
+	obj_flags = UNIQUE_RENAME
+	grid_width = 32
+	grid_height = 64
+	var/atom/movable/temp_stone = null //stones are not ammo so they aren't acceptable by ballistics. this var will keep the stone temporarily stored
+	var/bonus_stone_force = 0 //above comment is relevant. a magical stone's bonus force is kept on the sling itself and changed accordingly
+	var/heavy_sling = FALSE // enable if it's a big sling which should require two hands to fire
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/sling/get_mechanics_examine(mob/user)
+	. += span_info("Slings increase in damage and accuracy the higher your <b>PERCEPTION</b> and <b>STRENGTH</b>.")
+	. += span_info("Slings can be loaded directly from a pouch while your offhand is occupied by another item.")
 
 /datum/intent/swing/sling
 	chargetime = 1 //used for edge cases only, /datum/intent/shoot/sling/get_chargetime handles the actual number
@@ -59,42 +92,6 @@
 			return 0.5 //the minimum time to charge. used since a mixture of different factors is to be expected. very difficult to surpass
 	else
 		return chargetime //failsafe default value should the above conditions not be met
-
-//objs
-
-/obj/item/gun/ballistic/revolver/grenadelauncher/sling
-	name = "sling"
-	desc = "Twisted fibers manifest into a strung pouch capable of hurling stones afar."
-	icon = 'icons/roguetown/weapons/misc32.dmi'
-	icon_state = "sling"
-	item_state = "sling"
-	experimental_onhip = TRUE
-	experimental_onback = TRUE
-	possible_item_intents = list(
-		/datum/intent/swing/sling,
-		/datum/intent/arc/sling,
-		INTENT_GENERIC,
-		)
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/sling
-	fire_sound = 'sound/combat/Ranged/sling-shot-01.ogg'
-	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BELT
-	w_class = WEIGHT_CLASS_SMALL
-	randomspread = 0
-	spread = 0
-	can_parry = TRUE
-	force = 10 //i guess if someone wanted to wrap this around their hand and punch they could?
-	verbage = "load"
-	cartridge_wording = "stone"
-	load_sound = 'sound/foley/slingload.ogg'
-	obj_flags = UNIQUE_RENAME
-	grid_width = 32
-	grid_height = 64
-	var/atom/movable/temp_stone = null //stones are not ammo so they aren't acceptable by ballistics. this var will keep the stone temporarily stored
-	var/bonus_stone_force = 0 //above comment is relevant. a magical stone's bonus force is kept on the sling itself and changed accordingly
-
-/obj/item/gun/ballistic/revolver/grenadelauncher/sling/get_mechanics_examine(mob/user)
-	. += span_info("Slings increase in damage and accuracy the higher your <b>PERCEPTION</b> and <b>STRENGTH</b>.")
-	. += span_info("Slings can be loaded directly from a pouch while your offhand is occupied by another item.")
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/sling/getonmobprop(tag)
 	. = ..()
@@ -160,7 +157,7 @@
 			user.transferItemToLoc(A, temp_stone) //off to stone purgatory you go
 			A = new /obj/item/ammo_casing/caseless/rogue/sling_bullet //putting a temporary sling bullet in its place. bonus force is kept on the sling and set to 0 if shot or stone is ejected
 		..()
-		
+
 /obj/item/gun/ballistic/revolver/grenadelauncher/sling/attack_self(mob/user) //more unholy code
 	if (temp_stone != null) //if there's a 'stone' in the sling, drop it and delete the temporary ammo inside
 		user.dropItemToGround(temp_stone) //pulling the stone from stone purgatory and dropping it
@@ -214,3 +211,81 @@
 	caliber = "slingbullet"
 	max_ammo = 1
 	start_empty = TRUE
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/sling/great
+	name = "greatsling"
+	desc = "Known also as a 'fustibalus', this is a robust sling attached to the end of a long stave. \
+	While slower to swing and less portable than its meeker counterparts, it strikes with strength \
+	enough to daze opponents and break down weaker structures on contact. Often used in sieges."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "greatsling"
+	possible_item_intents = list(
+		/datum/intent/swing/sling,
+		/datum/intent/arc/sling,
+		INTENT_GENERIC,
+		)
+	force = 16 // It's a big stick, being hit with it will hurt somewhat.
+	slot_flags = ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_BULKY
+	damfactor = 1.2
+	accfactor = 0.9
+	pixel_y = -16
+	pixel_x = -16
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	experimental_onback = TRUE
+	grid_width = 64
+	grid_height = 64
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/sling/great/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list(
+					"shrink" = 0.6,
+					"sx" = 4,
+					"sy" = 2,
+					"nx" = 4,
+					"ny" = 2,
+					"wx" = -2,
+					"wy" = 1,
+					"ex" = 3,
+					"ey" = 1,
+					"northabove" = 0,
+					"southabove" = 1,
+					"eastabove" = 1,
+					"westabove" = 0,
+					"nturn" = 0,
+					"sturn" = 0,
+					"wturn" = 8,
+					"eturn" = 2,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 8,
+					"eflip" = 0,
+					)
+			if("onback")
+				return list(
+					"shrink" = 0.6,
+					"sx" = 1,
+					"sy" = 2,
+					"nx" = 1,
+					"ny" = 2,
+					"wx" = 1,
+					"wy" = 2,
+					"ex" = -2,
+					"ey" = 2,
+					"nturn" = 0,
+					"sturn" = 0,
+					"wturn" = 0,
+					"eturn" = 0,
+					"nflip" = 0,
+					"sflip" = 0,
+					"wflip" = 0,
+					"eflip" = 8,
+					"northabove" = 1,
+					"southabove" = 0,
+					"eastabove" = 0,
+					"westabove" = 0,
+					)
