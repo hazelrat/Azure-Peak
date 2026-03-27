@@ -53596,12 +53596,6 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
-"lks" = (
-/obj/structure/standingbell{
-	name = "church service bell"
-	},
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/church)
 "lkt" = (
 /obj/structure/flora/roguegrass/maneater,
 /turf/open/floor/rogue/grass,
@@ -72792,8 +72786,10 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/south)
 "piI" = (
-/obj/structure/chair/stool/rogue,
 /obj/structure/fluff/walldeco/church/line,
+/obj/structure/standingbell{
+	name = "church service bell"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "piJ" = (
@@ -267098,8 +267094,8 @@ cDX
 fpx
 fpx
 orS
-vsr
-vsr
+adP
+sOt
 sOt
 piI
 dTM
@@ -267549,9 +267545,9 @@ oTs
 cDX
 fpx
 fpx
-orS
-adP
-lks
+aSn
+rgA
+jDa
 jDa
 gJI
 fuG
@@ -268001,8 +267997,8 @@ fAN
 uBc
 fpx
 fpx
-aSn
-rgA
+orS
+xdP
 jDa
 jDa
 gJI
@@ -268454,7 +268450,7 @@ phl
 fpx
 fpx
 cQe
-xdP
+vsr
 jDa
 jDa
 gJI
