@@ -2378,6 +2378,13 @@
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/manor)
+"aAu" = (
+/obj/structure/fluff/railing/border/north,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/church)
 "aAw" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/rope/chain,
@@ -2417,13 +2424,6 @@
 	},
 /turf/open/floor/rogue/tile/brownbrick,
 /area/rogue/under/town/sewer)
-"aBa" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/obj/structure/fluff/railing/corner,
-/turf/open/floor/rogue/churchrough,
-/area/rogue/indoors/town/church)
 "aBd" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks,
@@ -15262,6 +15262,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault/four)
+"doL" = (
+/obj/structure/roguemachine/mail/l,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/church)
 "doT" = (
 /obj/structure/table/wood/poor/alt_alt{
 	color = "#C4A484"
@@ -23588,11 +23592,6 @@
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/town/basement/keep)
-"faI" = (
-/obj/structure/roguewindow/stained/yellow,
-/obj/structure/roguewindow/stained/yellow,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/church)
 "faJ" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -27382,6 +27381,13 @@
 /obj/structure/leyline/powerful,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog/south)
+"fQw" = (
+/obj/structure/standingbell{
+	name = "church service bell";
+	specific_location = "Infirmary of Pestra"
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/church)
 "fQx" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/dirt/road,
@@ -28224,6 +28230,13 @@
 /obj/structure/fluff/railing/corner,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/garrison)
+"gaC" = (
+/obj/structure/standingbell{
+	name = "church service bell";
+	specific_location = "Cathedral Nave"
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue/indoors/town/church)
 "gaI" = (
 /obj/structure/chair/bench/couch,
 /turf/open/floor/rogue/carpet,
@@ -49589,6 +49602,10 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/scarymaze)
+"kwM" = (
+/obj/structure/fluff/psycross,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/town/church)
 "kwN" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/ruinedwood,
@@ -57384,10 +57401,6 @@
 /obj/structure/trap/rock_fall,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/his_vault/puzzle)
-"lWw" = (
-/obj/structure/roguemachine/mail/l,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/church)
 "lWy" = (
 /obj/structure/fluff/railing/border/east,
 /obj/machinery/light/rogue/torchholder/c{
@@ -58202,7 +58215,7 @@
 /area/rogue/outdoors/town)
 "mdW" = (
 /obj/structure/mineral_door/wood/window{
-	name = "Bell of Azure Peak";
+	name = "Alchemical Arts";
 	locked = 1
 	},
 /turf/open/floor/rogue/concrete,
@@ -58862,6 +58875,14 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/pestra_sanctum)
+"mkY" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 8
+	},
+/obj/machinery/tanningrack,
+/turf/open/floor/rogue/churchrough,
+/area/rogue/indoors/town/church)
 "mlc" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grassyel,
@@ -63139,13 +63160,6 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/sewer)
-"nlk" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/floor/rogue/churchrough,
-/area/rogue/indoors/town/church)
 "nlt" = (
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/under/cavewet/bogcaves/west)
@@ -63928,6 +63942,13 @@
 /obj/structure/table/wood/poor,
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/tavern)
+"ntv" = (
+/obj/structure/fluff/railing/border/north,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/church)
 "ntw" = (
 /obj/structure/vine{
 	opacity = 1
@@ -66628,7 +66649,7 @@
 	color = "#3f3f3f";
 	dir = 10
 	},
-/obj/machinery/tanningrack,
+/obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/church)
 "nXo" = (
@@ -72787,9 +72808,7 @@
 /area/rogue/outdoors/bog/south)
 "piI" = (
 /obj/structure/fluff/walldeco/church/line,
-/obj/structure/standingbell{
-	name = "church service bell"
-	},
+/obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "piJ" = (
@@ -74066,7 +74085,7 @@
 	pixel_x = 0;
 	pixel_y = 9
 	},
-/obj/structure/rack/rogue/shelf,
+/obj/structure/fluff/wallclock,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/church)
 "pzf" = (
@@ -104959,6 +104978,10 @@
 "vTy" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/rack/rogue/shelf,
+/obj/structure/standingbell{
+	name = "church service bell";
+	specific_location = "Public Kitchen"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "vTG" = (
@@ -259413,9 +259436,9 @@ fpx
 cQe
 rUY
 nXl
-tNq
-tNq
 vLu
+tNq
+mkY
 tNq
 dom
 tNq
@@ -259879,7 +259902,7 @@ wTx
 wTx
 wTx
 wTx
-wTx
+gaC
 vuc
 dTM
 aTQ
@@ -264404,7 +264427,7 @@ lBm
 kSJ
 kCJ
 mtX
-faI
+uDE
 eVp
 eVp
 kgJ
@@ -267095,7 +267118,7 @@ fpx
 fpx
 orS
 adP
-sOt
+fQw
 sOt
 piI
 dTM
@@ -267545,7 +267568,7 @@ oTs
 cDX
 fpx
 fpx
-aSn
+uDE
 rgA
 jDa
 jDa
@@ -375596,7 +375619,7 @@ kJz
 kJz
 xbM
 eKF
-nlk
+kvZ
 orS
 pgo
 bsh
@@ -376048,7 +376071,7 @@ odQ
 odQ
 odQ
 odQ
-fOw
+ntv
 uDE
 pmE
 vVI
@@ -378760,7 +378783,7 @@ odQ
 odQ
 odQ
 odQ
-fOw
+aAu
 uDE
 fYu
 iGn
@@ -379212,7 +379235,7 @@ dTq
 dTq
 xtz
 yas
-aBa
+sex
 orS
 rGt
 bsh
@@ -486769,7 +486792,7 @@ bGf
 kSK
 kSK
 jjE
-rUY
+kwM
 pdq
 vFR
 rvr
@@ -487673,7 +487696,7 @@ bGf
 kSK
 kSK
 jjE
-rUY
+kwM
 sGs
 qax
 qax
@@ -492200,10 +492223,10 @@ wTx
 wTx
 txS
 txS
+wTx
 dTM
 kir
 cfE
-jDa
 jDa
 jDa
 jDa
@@ -492652,10 +492675,10 @@ eUb
 eUb
 eUb
 eUb
+eUb
 dTM
 tAs
 fRe
-jjt
 jjt
 jjt
 jjt
@@ -493104,10 +493127,10 @@ wTx
 wTx
 wTx
 wTx
+wTx
 dTM
 fvr
 cfE
-jDa
 jDa
 jDa
 jDa
@@ -493559,9 +493582,9 @@ ftG
 sMQ
 sMQ
 sMQ
-lLO
-lLO
 sMQ
+lLO
+lLO
 jXs
 dfo
 dRf
@@ -494011,9 +494034,9 @@ ded
 srx
 srx
 jID
-jDa
+doL
 uIQ
-lWw
+jjt
 cfE
 jSZ
 eTu
