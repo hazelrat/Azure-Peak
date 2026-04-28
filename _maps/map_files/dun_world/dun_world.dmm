@@ -2652,6 +2652,13 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/indoors/shelter/bog/skeletonfort)
+"aBY" = (
+/obj/structure/fluff/railing/border,
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/outdoors/town)
 "aCj" = (
 /obj/structure/fluff/railing/border/east,
 /obj/effect/decal/edge{
@@ -14235,6 +14242,14 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/druidsgrove)
+"cTY" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 8
+	},
+/obj/structure/fluff/railing/corner/north_east,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/town)
 "cUa" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
@@ -28245,6 +28260,14 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/cave/scarymaze)
+"fIK" = (
+/obj/effect/decal/edge{
+	color = "#3f3f3f";
+	dir = 8
+	},
+/obj/structure/fluff/railing/corner/south_east,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/town)
 "fIL" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -46951,7 +46974,8 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
 "jrk" = (
-/obj/structure/stairs/stone{
+/obj/structure/fluff/railing/border/north,
+/obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/floor/rogue/concrete,
@@ -103608,15 +103632,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/sewer)
-"uvq" = (
-/obj/effect/decal/edge{
-	color = "#3f3f3f";
-	dir = 8
-	},
-/obj/structure/fluff/railing/corner/south_east,
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/outdoors/town)
 "uvr" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /obj/structure/fluff/railing/border/north,
@@ -115736,6 +115751,12 @@
 	dir = 4
 	},
 /area/rogue/under/cave/his_vault/two)
+"wQo" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/outdoors/town)
 "wQp" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/dirt/road,
@@ -277776,9 +277797,9 @@ eSr
 gtC
 hha
 hha
-hha
-uvq
-hha
+fIK
+boj
+cTY
 nQP
 vcD
 eSr
@@ -278226,10 +278247,10 @@ fpx
 kur
 sns
 wkc
-jrk
-jrk
-jrk
-vwT
+wQo
+wQo
+aBY
+oJl
 jrk
 jUs
 pWh
